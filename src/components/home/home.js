@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {View, Dimensions, StyleSheet, Image} from 'react-native';
+import {View, Dimensions, StyleSheet, Image, Text} from 'react-native';
 import Carousel from 'react-native-looped-carousel';
 
 const {width} = Dimensions.get('window');
@@ -7,6 +7,13 @@ const styles = StyleSheet.create({
   images: {
     width: '100%',
     height: '100%',
+  },
+  navigator: {
+    height: 50,
+    backgroundColor: 'yellow',
+    alignItems: 'center',
+    justifyContent: 'space-around',
+    flexDirection: 'row',
   },
 });
 export default class Home extends Component {
@@ -17,7 +24,21 @@ export default class Home extends Component {
     return (
       <View>
         {/* 1.自定义导航条 */}
-        
+        <View style={styles.navigator}>
+          <Text>首页</Text>
+          <Text
+            onPress={() => {
+              this.props.navigation.navigate('Movie');
+            }}>
+            电影
+          </Text>
+          <Text
+            onPress={() => {
+              this.props.navigation.navigate('Mine');
+            }}>
+            我的
+          </Text>
+        </View>
         {/* 2.轮播图 */}
         <View style={this.state.size} onLayout={this._onLayoutDidChange}>
           <Carousel
@@ -64,6 +85,7 @@ export default class Home extends Component {
             </View>
           </Carousel>
         </View>
+
         {/* ====================下面轮播图已经有效果================ */}
         {/* <View style={this.state.size} onLayout={this._onLayoutDidChange}>
           <Carousel
