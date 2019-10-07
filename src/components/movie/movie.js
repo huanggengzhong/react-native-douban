@@ -1,5 +1,9 @@
 import React, {Component} from 'react';
-import {View, Text, ActivityIndicator} from 'react-native';
+import {Text, ActivityIndicator, ScrollView} from 'react-native';
+
+//导入自己定义的无状态组件
+import MovieTypeView from './../../view/MovieTypeView';
+
 export default class Movie extends Component {
   state = {
     isLoading: true, //是否正在加载
@@ -21,7 +25,7 @@ export default class Movie extends Component {
     ]).then(result => {
       console.log(result); //得到上面三个数据
       this.setState({
-        isLoading: false,
+        isLoading: false, //是否正在加载
         inTheatersList: result[0],
         comingSoonList: result[1],
         top250List: result[2],
@@ -33,11 +37,12 @@ export default class Movie extends Component {
       return <ActivityIndicator size="large" color="#0000ff" />;
     } else {
       return (
-        <View>
-          <Text>{this.state.inTheatersList.title}</Text>
+        <ScrollView>
+          {/* 1.正在热映 */}
+          {/* <MovieTypeView title={this.state.inTheatersList.title} /> */}
           <Text>{this.state.comingSoonList.title}</Text>
           <Text>{this.state.top250List.title}</Text>
-        </View>
+        </ScrollView>
       );
     }
   }
