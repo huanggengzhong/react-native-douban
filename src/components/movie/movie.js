@@ -39,7 +39,7 @@ export default class Movie extends Component {
       return (
         <ScrollView>
           {/* 1.正在热映 */}
-          {/* <MovieTypeView title={this.state.inTheatersList.title} /> */}
+          <MovieTypeView title={this.state.inTheatersList.title} />
           <Text>{this.state.comingSoonList.title}</Text>
           <Text>{this.state.top250List.title}</Text>
         </ScrollView>
