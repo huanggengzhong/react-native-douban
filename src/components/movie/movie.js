@@ -26,7 +26,7 @@ export default class Movie extends Component {
       console.log(result); //得到上面三个数据
       this.setState({
         isLoading: false, //是否正在加载
-        inTheatersList: result[0],
+        inTheatersList: result[0].subjects,
         comingSoonList: result[1],
         top250List: result[2],
       });
@@ -39,9 +39,12 @@ export default class Movie extends Component {
       return (
         <ScrollView>
           {/* 1.正在热映 */}
-          <MovieTypeView title={this.state.inTheatersList.title} />
-          <Text>{this.state.comingSoonList.title}</Text>
-          <Text>{this.state.top250List.title}</Text>
+          <MovieTypeView
+            title="正在热映"
+            movieList={this.state.inTheatersList}
+            movieType="in_theaters"
+            navigation={this.props.navigation}
+          />
         </ScrollView>
       );
     }
