@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Text, ActivityIndicator, ScrollView} from 'react-native';
+import {Text, View, ActivityIndicator, ScrollView} from 'react-native';
 
 //导入自己定义的无状态组件
 import MovieTypeView from './../../view/MovieTypeView';
@@ -27,8 +27,8 @@ export default class Movie extends Component {
       this.setState({
         isLoading: false, //是否正在加载
         inTheatersList: result[0].subjects,
-        comingSoonList: result[1],
-        top250List: result[2],
+        comingSoonList: result[1].subjects,
+        top250List: result[2].subjects,
       });
     });
   }
@@ -45,6 +45,24 @@ export default class Movie extends Component {
             movieType="in_theaters"
             navigation={this.props.navigation}
           />
+          {/* 2.即将热映 */}
+          <View style={{marginTop: 20}}>
+            <MovieTypeView
+              title="即将热映"
+              movieList={this.state.comingSoonList}
+              movieType="coming_soon"
+              navigation={this.props.navigation}
+            />
+          </View>
+          {/* top250 */}
+          <View style={{marginTop: 20}}>
+            <MovieTypeView
+              title="top250"
+              movieList={this.state.top250List}
+              movieType="top250"
+              navigation={this.props.navigation}
+            />
+          </View>
         </ScrollView>
       );
     }

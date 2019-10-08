@@ -5,6 +5,8 @@ import {createStackNavigator} from 'react-navigation-stack';
 import HomeScreen from './src/components/home/home.js';
 import MineScreen from './src/components/mine/mine.js';
 import MovieScreen from './src/components/movie/movie.js';
+import MovieListScreen from './src/components/movie/movieList.js';
+import MovieInfoScreen from './src/components/movie/movieInfo.js';
 import {Image} from 'react-native';
 //顶部导航
 const HomeStack = createStackNavigator({
@@ -24,6 +26,26 @@ const MovieStack = createStackNavigator({
     screen: MovieScreen,
     navigationOptions: {
       headerTitle: '电影',
+      headerTitleStyle: {
+        flex: 1,
+        textAlign: 'center',
+      },
+    },
+  },
+  MovieList: {
+    screen: MovieListScreen,
+    navigationOptions: {
+      headerTitle: '电影列表',
+      headerTitleStyle: {
+        flex: 1,
+        textAlign: 'center',
+      },
+    },
+  },
+  MovieInfo: {
+    screen: MovieInfoScreen,
+    navigationOptions: {
+      headerTitle: '电影详情',
       headerTitleStyle: {
         flex: 1,
         textAlign: 'center',

@@ -16,7 +16,7 @@ export default props => {
           paddingLeft: 5,
           paddingRight: 5,
           justifyContent: 'space-between',
-          backgroundColor:'#EEF3F9'
+          backgroundColor: '#EEF3F9',
         }}
         onPress={() => {
           props.navigation.navigate('MovieList', {
@@ -25,10 +25,17 @@ export default props => {
           });
         }}>
         <Text>{props.title}</Text>
-        <Image
-          style={{width: 20, height: 20}}
-          source={require('./../statics/images/arrow-right.png')}
-        />
+        <View
+          style={{
+            direction: 'flex',
+            flexDirection: 'row',
+          }}>
+          <Text style={{color: '#4494F9'}}>查看更多</Text>
+          <Image
+            style={{width: 20, height: 20}}
+            source={require('./../statics/images/arrow-right.png')}
+          />
+        </View>
       </TouchableOpacity>
 
       {/* 2.0 显示内容 */}
@@ -52,7 +59,7 @@ export default props => {
                 style={{width: 150, height: 220}}
                 source={{uri: item.images.small}}
               />
-              <Text style={{fontSize: 12, marginTop: 5}}>{item.title}</Text>
+              <Text style={{fontSize: 16, marginTop: 5}}>{item.title}</Text>
             </TouchableOpacity>
           );
         })}
