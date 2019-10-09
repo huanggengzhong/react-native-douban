@@ -35,7 +35,7 @@ const MovieStack = createStackNavigator({
   MovieList: {
     screen: MovieListScreen,
     navigationOptions: {
-      headerTitle: '电影列表',
+      // headerTitle: '电影列表',
       headerTitleStyle: {
         flex: 1,
         textAlign: 'center',
@@ -45,7 +45,7 @@ const MovieStack = createStackNavigator({
   MovieInfo: {
     screen: MovieInfoScreen,
     navigationOptions: {
-      headerTitle: '电影详情',
+      // headerTitle: '电影详情',//先注释
       headerTitleStyle: {
         flex: 1,
         textAlign: 'center',
