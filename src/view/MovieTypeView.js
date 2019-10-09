@@ -1,3 +1,4 @@
+//这里写通用的模板
 import React from 'react';
 
 import {TouchableOpacity, View, Text, Image, ScrollView} from 'react-native';
@@ -17,12 +18,6 @@ export default props => {
           paddingRight: 5,
           justifyContent: 'space-between',
           backgroundColor: '#EEF3F9',
-        }}
-        onPress={() => {
-          props.navigation.navigate('MovieList', {
-            title: props.title,
-            movieType: props.movieType,
-          });
         }}>
         <Text>{props.title}</Text>
         <View
@@ -30,11 +25,16 @@ export default props => {
             direction: 'flex',
             flexDirection: 'row',
           }}>
-          <Text style={{color: '#4494F9'}}>查看更多</Text>
-          <Image
-            style={{width: 20, height: 20}}
-            source={require('./../statics/images/arrow-right.png')}
-          />
+          <Text
+            style={{color: '#4494F9'}}
+            onPress={() => {
+              props.navigation.navigate('MovieList', {
+                title: props.title,
+                movieType: props.movieType,
+              });
+            }}>
+            查看更多 ＞
+          </Text>
         </View>
       </TouchableOpacity>
 
